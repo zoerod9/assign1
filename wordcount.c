@@ -7,19 +7,19 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 // include other standard header files or your own user defined libraries needed
 
 int main(int argc, char *arvg[])
 {
   
   char fileCharacters;
-  FILE *filePointer;
-
-  // data to be read from file
+  //FILE *filePointer;
   int numberOfCharacters;
+  
 
 // take the name of an input file as a command line argument and open file argv[1] to read
-  filePointer = fopen("input_file_1.txt", "r");
+  FILE *filePointer = fopen(arvg[1], "r");
 
   // if file can not be opened, return/exit with exit code 1. give error
   if (filePointer == NULL)
@@ -32,26 +32,18 @@ int main(int argc, char *arvg[])
 
     // read data from file
     while ((fileCharacters = fgetc(filePointer)) != EOF){
-      // count words
+      // if file opened, count/print number of words in file argc[1] and return w/ exit code 0
       if(fileCharacters == ' ' || fileCharacters == '\n')
         numberOfCharacters++;
     }
 
-
-      
-      // if file opened, count/print number of words in file argc[1] and return w/ exit code 0
-
-      // you can read file line-by-line using ReadLine() from last assignment
-      // then count words in each line, sum them up
-      // or we can use isspace(char c) to check for white-space char
-      
-      // print data from file
-      //printf("%s", readDataFromFile);
+    int pid = getpid();
 
     // close the file
     fclose(filePointer);
 
-    printf("wordcount with process pid_1 counted words in File_1: number of words is %d\n", numberOfCharacters);
+    // number of words no longer working
+    printf("wordcount with process %d counted words in File_1: number of words is %c\n", pid, numberOfCharacters);
     printf("file is now closed");
   }
   return 0;
