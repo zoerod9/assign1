@@ -7,12 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 // include other standard header files or your own user defined libraries needed 
 
  
 
-// take names of multiple input files as command line args
-// determines number of files
+
+
 // for each file, forks a child to execute wordcount for each file
 // parent will wait for child processed 
 // parent will inspect child's exit codes
@@ -40,10 +41,18 @@ for( ; ; ) {
 }
 */
 
-int main(int argc, char *arvg[])
+int main(int argc, char *argv[])
 {
-  // YOU NEED TO IMPLEMENT THIS + some other functions if needed! 
- 
+  // take names of multiple input files as command line args
+// determines number of files
+// FILE *filePointer = fopen(argv[1], "r");
+// printf("testing here");
+// char i;
+
+// for (i = 0; i < argv[i-1]; i++)
+// {
+//   printf("printed file");
+// }
   return 0;
 }
    
